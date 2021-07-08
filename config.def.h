@@ -1,7 +1,5 @@
-/* macro for conveniently specifying pathu and pathc below */
-#define PATH(name)                      "<path to the folder containing block scripts>/"name
+#define PATH(name)                      "/home/testninja/.scripts/"name
 
-/* buffer size for capturing output of the programs used for updating blocks */
 #define CMDOUTLENGTH                    50
 
 /* DELIMITERENDCHAR must be less than 32.
@@ -15,9 +13,7 @@
    dwm.c and color codes in your pathu programs. */
 #define DELIMITERENDCHAR                10
 
-/* delimiter specified as an array of characters
- * don't remove DELIMITERENDCHAR at the end */
-static const char delimiter[] = { ' ', ' ', ' ', DELIMITERENDCHAR };
+static const char delimiter[] = { ' ', ' ', DELIMITERENDCHAR };
 
 #include "block.h"
 
@@ -32,20 +28,21 @@ static const char delimiter[] = { ' ', ' ', ' ', DELIMITERENDCHAR };
  * If multiple signals are pending, then the lowest numbered one will be
    delivered first. */
 
-/* pathu - path of the program whose output is used as status text of the block
-           (output of the program should be a single line of text with at most
-            one newline character at the end)
- * pathc - path of the program used for handling clicks on the block */
-
 /* 1 interval = INTERVALs seconds, INTERVALn nanoseconds */
 #define INTERVALs                       1
 #define INTERVALn                       0
 
 static Block blocks[] = {
-/*      pathu                           pathc                           interval        signal */
-        { PATH("calendar.sh"),          NULL,                           30,             1},
-        { PATH("volume.sh"),            PATH("volume_button.sh"),       0,              2},
-        { PATH("cpu_temp.sh"),          PATH("cpu_temp_button.sh"),     1,              4},
-        { PATH("battery.sh"),           PATH("battery_button.sh"),      30,             3},
-        { NULL } /* just to mark the end of the array */
+/*      pathu                                   pathc                                    interval       signal */
+        { PATH("keyboard_layout.sh"),           NULL,                                    3600,          5},
+        { PATH("toggle_lockscreen_timeout.sh"), PATH("toggle_lockscreen_timeout.sh"),    300,           1},
+        { PATH("mic.sh"),                       PATH("mic.sh"),                          300,           4},
+        { PATH("volume.sh"),                    PATH("volume.sh"),                       3600,          3},
+        { PATH("memory.sh"),                    NULL,                                    3,             0},
+        { PATH("cpu_usage.sh"),                 NULL,                                    3,             0},
+        { PATH("net_speed.sh"),                 NULL,                                    1,             0},
+        { PATH("net_usage.sh"),                 NULL,                                    10,            0},
+        { PATH("battery.sh"),                   NULL,                                    300,           0},
+        { PATH("datetime.sh"),                  PATH("datetime.sh"),                     60,            2},
+        { NULL }
 };
