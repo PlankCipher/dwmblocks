@@ -41,6 +41,7 @@ static Block blocks[] = {
         { PATH("volume.sh"),                    PATH("volume.sh"),                       3600,          3},
         { PATH("memory.sh"),                    NULL,                                    3,             0},
         { PATH("cpu_usage.sh"),                 NULL,                                    3,             0},
+        { PATH("fans.sh"),                      NULL,                                    3,             0},
         { PATH("bluetooth.sh"),                 NULL,                                    5,             0},
         { PATH("net_speed.sh"),                 NULL,                                    1,             0},
         { PATH("net_usage.sh"),                 NULL,                                    10,            0},
